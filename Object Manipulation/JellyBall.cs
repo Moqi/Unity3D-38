@@ -6,27 +6,17 @@ using System.Collections;
 
 public class JellyBall : MonoBehaviour
 {
-    public enum Space { _, __ }
-    public GameObject Spring;
-    public GameObject CenterSpring;
-    public Space _;
+    public GameObject Spring, CenterSpring;
     public int NumSprings = 21; //Layer density
     public float SkinThickness = 5f; //Space betwen layers
     public int OverallSpring = 2; //Stregnth of spring
     public float Damper = 0.2f; //Resistance to bounce
-    public int MaxForce = 5;
-    public Space __;
+    public int MaxForce = 5, InsideMaxForce = 5;
     public int InsideOverallSpring = 2; //Stregnth of spring
     public float InsideDamper = 0.2f; //Resistance to bounce
-    public int InsideMaxForce = 5;
-    public Space _____;
     public int Radius = 10; //Overall size of Goo
-    public Space ___;
-    public int MaxBounce = 0; //The Maximum amount of bounce when hitting the limit
-    public int Max = 0; //Max limit of the joint
-    public int Min = 0; //Min limit of the joint
-    public int MinBounce = 0; //Minimum Bounce of the joint
-    public Space ____;
+    public int MaxBounce, MinBounce = 0; //The Max:Min amount of bounce when hitting the limit
+    public int Min, Max = 0; //Min:Max limit of the joint
     public bool UseGravity;
     private GameObject[] _cachedpos;
     [HideInInspector]
@@ -136,8 +126,6 @@ public class JellyBall : MonoBehaviour
 	        springDistro.connectedBody = springCenter.rigidbody;
 	        springDistro.xDrive = insidelayer;
 	        springDistro.yDrive = insidelayer;
-
-
 	    }
 
 	    #endregion
@@ -146,8 +134,7 @@ public class JellyBall : MonoBehaviour
 
 	    #region Crosshatch Ball
 
-	    var sz = 1; //These are to always add the link to 1 step ahead of the component
-	    var zs = 1;
+	    var sz, zs = 1; //These are to always add the link to 1 step ahead of the component
 	    for (int i = 0; i < lList.Count; i++)
 	    {
 	        if (sz >= NumSprings)
@@ -176,8 +163,7 @@ public class JellyBall : MonoBehaviour
 
 	    #region Layer the ball
 
-	    var xa = 1; //These are to always add the link to 1 step ahead of the component
-	    var ax = 1;
+	    var xa, ax = 1; //These are to always add the link to 1 step ahead of the component
 	    for (int i = 0; i < lList.Count; i++)
 	    {
 	        if (xa >= NumSprings)
@@ -253,8 +239,6 @@ public class JellyBall : MonoBehaviour
 
         Mesh mesh = target.GetComponent<MeshFilter>().mesh;
         Debug.DrawLine(Camera.mainCamera.transform.position, transform.position + mesh.vertices[0]);
-
-
     }
 
     void OnDrawGizmos()
