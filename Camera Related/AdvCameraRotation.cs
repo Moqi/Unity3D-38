@@ -31,7 +31,7 @@ public class AdvCameraRotation : MonoBehaviour
 
     enum AnimationStates
     {
-        
+        //Placeholder
     }
 
     void OnAwake()
