@@ -13,7 +13,7 @@ public class AdvCameraRotation : MonoBehaviour
     /// Todo: Add Pathing via Spline Movement  !!  So the camera can freely move and use the animation curves morso.
     /// Todo: Better Null Handling !! We don't want errors everywhere when the user doesn't set up correctly, now do we?
     /// Todo: Unlock from Player !! Allow camera to work perfectly without player references.
-    /// Todo: Nice and Easy GUI !! Don't make it look like horse shit.
+    /// Todo: Nice and Easy GUI !! Don't make it look like crap.
     /// Todo: Keybinding !! Nothing set in stone, all needs to be changed for the greater good.
     /// 
     /// </summary>
